@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from '../components/form/Form';
 import Header from '../components/header/Header';
 import Results from '../components/results/Results';
+import { fetchApi } from '../services/fetchApi';
 
 export default class Restful extends Component {
   state = {
@@ -15,7 +16,16 @@ export default class Restful extends Component {
     this.setState({ [target.name]: target.value });
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.fetch();
+  }
 
+  fetch = () => {
+    const { url, method, body } = this.state;
+    return fetchApi(url, method, body)
+      .then(res => this.setState({ results: res }));
+  }
 
   render() {
     const { url, method, body, results } = this.state;
