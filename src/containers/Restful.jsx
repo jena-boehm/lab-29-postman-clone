@@ -39,7 +39,9 @@ export default class Restful extends Component {
           body={body}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit} />
-        <Results results={results} />
+        <Results 
+          data-testid="results"
+          results={results} />
       </>
     );
   }

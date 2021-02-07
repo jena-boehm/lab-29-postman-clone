@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import ReactJSON from 'react-json-view';
 
 const Results = ({ results }) => (
-  <ReactJSON src={results} />
+  <ReactJSON 
+    data-testid="results"
+    src={results} />
 );
 
 Results.propTypes = {
