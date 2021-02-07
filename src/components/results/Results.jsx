@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactJSON from 'react-json-view';
 
-const Results = () => {
-    
-};
+const Results = ({ results }) => (
+  <ReactJSON 
+    data-testid="results"
+    src={results} />
+);
 
 Results.propTypes = {
-    
+  results: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
 };
 
 export default Results;
